@@ -18,7 +18,7 @@ datasource db {
 model User {
   id           String    @id
   username     String    @unique
-  dissplayName String
+  displayName String
   email        String?   @unique
   passwordHash String?
   googleId     String?   @unique
