@@ -18,13 +18,13 @@ datasource db {
 model User {
   id           String    @id
   username     String    @unique
-  displayName String
+  displayName  String
   email        String?   @unique
   passwordHash String?
   googleId     String?   @unique
   avatarUrl    String?
   bio          String?
-  sessions      Session[]
+  sessions     Session[]
 
   createAt DateTime @default(now())
 
@@ -32,9 +32,10 @@ model User {
 }
 
 model Session {
-  id         String   @id
-  userId     String
-  expriresAt DateTime
+  id        String   @id
+  userId    String
+  expiresAt DateTime
+
   User User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("sessions")
